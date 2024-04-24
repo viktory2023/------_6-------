@@ -7,12 +7,13 @@ import Received from "./pages/received";
 import Sent from "./pages/Sent";
 import LoginPage from "./components/LoginForm";
 import Profile from "./pages/profile";
+import AllPerson from "./pages/allpeople";
 
 
 function App() {
   return (
     <div>
-      <Load/>
+      <AllPerson/>
     </div>
   );
 }
