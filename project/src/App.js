@@ -7,14 +7,13 @@ import Received from "./pages/received";
 import Sent from "./pages/Sent";
 import LoginPage from "./components/LoginForm";
 import Profile from "./pages/profile";
-import AllPerson from "./pages/allpeople";
-import ProfileNoti from "./pages/profile_notification";
+import AllOrg from "./pages/allorg";
 
 
 function App() {
   return (
     <div>
-      <ProfileNoti/>
+      <AllOrg/>
     </div>
   );
 }

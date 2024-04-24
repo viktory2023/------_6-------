@@ -10,7 +10,7 @@ const TopMenu = () => {
       <div  style={{ textAlign: 'center' }}>
         <a href="/pages/Sent" style={{ color: 'white', textDecoration: 'none', margin: '0 80px', display: 'inline-block',  marginRight:'350px' }}>Новый пользователь</a>
         <a href="/pages/received" style={{ color: 'white', textDecoration: 'none', margin: '0 80px', display: 'inline-block', marginRight:'350px'  }}>Документы</a>
-        <a href="/pages/received" style={{ color: 'white', textDecoration: 'none', margin: '0 80px', display: 'inline-block', marginRight:'350px'  }}>Все пользователи</a>
+        <a href="/pages/received" style={{ color: 'white', textDecoration: 'none', margin: '0 80px', display: 'inline-block', marginRight:'350px'  }}>Организации</a>
       </div>
     </div>
   );
