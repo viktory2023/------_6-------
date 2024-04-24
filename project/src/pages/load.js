@@ -18,6 +18,8 @@ function Load() {
             <input type="text" class="form__input" id="note" placeholder="Заполните поле" required="" />
         </div>
         <label for="name" class="form__label">примечание</label>
+        
+      <button class="button-36" type="submit">Отправить</button>
       </div>
     );
   }
