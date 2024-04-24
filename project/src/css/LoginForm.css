@@ -1,4 +1,19 @@
+.notification-button {
+  position: relative;
+}
 
+.notification-button::after {
+  content: url('../components/bell-icon.png');
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 2px;
+  height: 2px;
+}
+.bell{
+  margin-left: 91%;
+  margin-top: -10%;
+}
 .button-36 {
   background-image: linear-gradient(92.88deg, #93aaba 9.16%, #93aaba 43.89%, #93aaba 64.72%);
   border-radius: 8px;

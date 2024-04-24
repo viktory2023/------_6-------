@@ -8,12 +8,13 @@ import Sent from "./pages/Sent";
 import LoginPage from "./components/LoginForm";
 import Profile from "./pages/profile";
 import AllPerson from "./pages/allpeople";
+import ProfileNoti from "./pages/profile_notification";
 
 
 function App() {
   return (
     <div>
-      <AllPerson/>
+      <ProfileNoti/>
     </div>
   );
 }
