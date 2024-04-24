@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../css/LoginForm.css'
 import logo from './train.png'
+import client from '../utils/client';
+import { Navigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -8,14 +10,24 @@ const LoginPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = () => {
-
-    if (username === 'admin' && password === '1234') {
-      setLoggedIn(true);
-    } else {
-      alert('Неверные учетные данные');
-    }
+    client.post('auth/sign-in', {username: username, password: password})
+        .then(({data}) => {
+          localStorage.setItem("token", data.token);
+          setLoggedIn(true);
+        })
+        .catch((e) => {
+          alert('Неверные учетные данные');
+          console.log(e)
+        })
+    // if (username === 'admin' && password === '1234') {
+    //   setLoggedIn(true);
+    // } else {
+    //   alert('Неверные учетные данные');
+    // }
   };
-
+  if (isLoggedIn) {
+    return <Navigate to="/" replace/>
+  }
   return (
     <>
     <div class="box-L">
