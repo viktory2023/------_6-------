@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  edf-frontend:
+    image: edf-frontend
+    build:
+      context: ./project
+    ports:
+      - "80:3000"
