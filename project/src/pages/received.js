@@ -20,7 +20,6 @@ function Received() {
     setDocList(undefined)
     getReceivedDocs().then((res) => {
       setDocList(res);
-      // console.log(res)
     });
   }
 
@@ -29,7 +28,7 @@ function Received() {
     <div>
        <Header />
        <div style={{ margin: '30px auto', display: 'flex', justifyContent: 'center' }}>
-        <Table docList={docList}/>
+        <Table docList={docList} isReceived={true}/>
        </div>
     </div>
   );

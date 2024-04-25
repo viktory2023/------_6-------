@@ -40,7 +40,7 @@ function Sent() {
               recipient.firstname.includes(filter) ||
               recipient.lastname.includes(filter) ||
               recipient.patronymic.includes(filter));
-        })} />
+        })}/>
        </div>
     </div>
   );
