@@ -11,7 +11,7 @@ export const isAuthed = async () => {
       await client
           .get('/auth/profile', {headers: {Authorization: 'Bearer ' + token}})
           .catch((e) => console.log(e));
-  console.log(res)
+  // console.log(res)
   // console.log(res?.data.role === 'ADMIN')
   if (res?.data.role === "ADMIN") {
     localStorage.setItem("isAdmin", true)

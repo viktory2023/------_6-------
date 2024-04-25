@@ -20,7 +20,7 @@ function Received() {
     setDocList(undefined)
     getReceivedDocs().then((res) => {
       setDocList(res);
-      console.log(res)
+      // console.log(res)
     });
   }
 

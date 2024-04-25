@@ -24,7 +24,7 @@ function Profile() {
     setProfile(undefined)
     getProfile().then((res) => {
       setProfile(res);
-      console.log(res)
+      // console.log(res)
     });
   }
   // localStorage.setItem("token", null)

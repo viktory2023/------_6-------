@@ -19,11 +19,6 @@ const LoginPage = () => {
           alert('Неверные учетные данные');
           console.log(e)
         })
-    // if (username === 'admin' && password === '1234') {
-    //   setLoggedIn(true);
-    // } else {
-    //   alert('Неверные учетные данные');
-    // }
   };
   if (isLoggedIn) {
     return <Navigate to="/" replace/>

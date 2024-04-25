@@ -7,8 +7,6 @@ const docTypes = {
 }
 
 const Table = ({docList}) => {
-  if (docList === null || docList === undefined) {
-  }
 
   return (
     <table collapseOnSelect expand='md' style={{top:'40%'}}>
