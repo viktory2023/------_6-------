@@ -43,7 +43,8 @@ export const downloadDoc =
 }
 
 
-export const getUsers = async (name) => {
+export const getUsers =
+    async (name) => {
   const res = await client
                   .get(
                       '/users/find',
@@ -57,5 +58,26 @@ export const getUsers = async (name) => {
 }
 
 export const sendDoc = async ({file, type, description, recipient}) => {
-  
+  const form = new FormData();
+  console.log(typeof(file));
+  // form.append('file', file)
+  const data = {
+    file: file,
+    type: type,
+    description: description,
+    recipient: recipient
+  };
+  console.log(data);
+  await client
+      .post('/document/send', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: 'Bearer ' + getToken()
+        }
+      })
+      .then(() => alert('Документ отправлен'))
+      .catch((e) => {
+        console.log(e);
+        alert('Документ не отправлен, проверьте данные');
+      })
 }

@@ -1,48 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
-const DropdownMenu = () => {
-    const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch('http://example.com/api/menuItems');
-            const data = await response.json();
-            setData(data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching data: ', error);
-            setIsLoading(false);
-        }
-    };
-
-    if (isLoading) {
+const DropdownMenu = ({data, setValue, value}) => {
+    if (data === null || data === undefined) {
         return <div>Loading...</div>;
     }
 
     return (
         <div>
-            <label>Тип файла:</label>
-            <select name="file">  
-                <option value="SELECT">Выберите тип</option>
-                {data.map((item, index) => (
-                    <option key={index} value={item.value}>{item.label}</option>
+            <select name="file" onChange={({target}) => {
+                setValue(target.value);
+                console.log(value);
+                }}>  
+                <option value={null}>НЕ ВЫБРАНО</option>
+                {data.map(({key, value}, index) => (
+                    <option key={index} value={key}>{value}</option>
                 ))}
             </select>
         </div>
     );
 };
 
-const App = () => {
-    return (
-        <div>
-            <DropdownMenu />
-        </div>
-    );
-};
-
-export default App;
+export default DropdownMenu;
