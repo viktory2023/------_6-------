@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import profile from './profile.png'; 
 import logo from './train.png';
 
+import { Link } from 'react-router-dom';
+
 const TopMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -22,9 +24,9 @@ const TopMenu = () => {
     </div>
     <h4 style={{ marginRight:'25px'}}>ЭДО</h4>
       <div  style={{ textAlign: 'center' }}>
-        <a href="/pages/Sent" style={{ color: 'white', textDecoration: 'none', margin: '0 50px', display: 'inline-block',  marginRight:'350px' }}>Отправленные</a>
-        <a href="/pages/received" style={{ color: 'white', textDecoration: 'none', margin: '0 50px', display: 'inline-block', marginRight:'350px'  }}>Полученные</a>
-        <a href="" style={{ color: 'white', textDecoration: 'none', margin: '0 50px', display: 'inline-block' }}>Загрузить</a>
+        <Link to="/sent" style={{ color: 'white', textDecoration: 'none', margin: '0 50px', display: 'inline-block',  marginRight:'350px' }}>Отправленные</Link>
+        <Link to="/received" style={{ color: 'white', textDecoration: 'none', margin: '0 50px', display: 'inline-block', marginRight:'350px'  }}>Полученные</Link>
+        <Link to="/load" style={{ color: 'white', textDecoration: 'none', margin: '0 50px', display: 'inline-block' }}>Загрузить</Link>
       </div>
       <div style={{ position: 'relative' }}>
         <img src={profile} alt="Menu" height="50"
@@ -32,10 +34,10 @@ const TopMenu = () => {
                          style={{ cursor: 'pointer', marginLeft: '150px',}} onClick={handleMenuClick} />
         {menuOpen && (
           <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: '#ffffff', padding: '30px', borderRadius: '5px', borderBlockColor: '#637d8f',  border: '2px solid #637d8f',}}>
-            <a href="#" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center' }}>Профиль</a>
-            <a href="/pages/Sent" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center'  }}>Отправленные</a>
-            <a href="/pages/received" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center'  }}>Полученные</a>
-            <a href="#" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center'  }}>Загрузка</a>
+            <Link to="/" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center' }}>Профиль</Link>
+            <Link to="/sent" href="/pages/Sent" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center'  }}>Отправленные</Link>
+            <Link to="/received" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center'  }}>Полученные</Link>
+            <Link to="/load" style={{ display: 'block', color: '#637d8f', textDecoration: 'none', borderBottom: '3px solid #637d8f', paddingBottom: '10px', textAlign: 'center'  }}>Загрузка</Link>
           </div>
         )}
       </div>
