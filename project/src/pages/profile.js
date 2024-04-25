@@ -29,6 +29,7 @@ function Profile() {
 
   const handleLogout = () => {
     localStorage.setItem("token", null);
+    setIsLogged(false);
   };
   return ( 
     <div>
