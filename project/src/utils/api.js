@@ -32,11 +32,30 @@ export const getReceivedDocs =
   return res?.data || null
 }
 
-export const downloadDoc = async ({path, filename}) => {
+export const downloadDoc =
+    async ({path, filename}) => {
   await client
       .get(
           '/document/get/' + path,
           {headers: {Authorization: 'Bearer ' + getToken()}})
       .then(({data}) => fileDownload(data, filename))
       .catch(e => console.log(e))
+}
+
+
+export const getUsers = async (name) => {
+  const res = await client
+                  .get(
+                      '/users/find',
+                      {
+                        headers: {Authorization: 'Bearer ' + getToken()},
+                        params: {name: name}
+                      }
+                    )
+                  .catch((e) => console.log(e));
+  return res?.data || null
+}
+
+export const sendDoc = async ({file, type, description, recipient}) => {
+  
 }
