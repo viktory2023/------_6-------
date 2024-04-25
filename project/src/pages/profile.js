@@ -8,7 +8,6 @@ import TopMenu from '../components/HeaderSmall';
 import {getProfile} from '../utils/api';
 import {isAuthed} from '../utils/auth';
 
-//  все, что указано под "профилем" идет из базы, но я пока не до конца поняла, как это правильно написать, так что простите, пожалуйста 
 
 function Profile() {
   const [isLogged, setIsLogged] = useState(null);
@@ -27,8 +26,11 @@ function Profile() {
       console.log(res)
     });
   }
-  // localStorage.setItem("token", null)
-  return (
+
+  const handleLogout = () => {
+    localStorage.setItem("token", null);
+  };
+  return ( 
     <div>
       <TopMenu/>
       <h1 class='pro'>ПРОФИЛЬ</h1>
@@ -37,8 +39,9 @@ function Profile() {
       <p class='p3'>{profile?.patronymic || "ОТЧЕСТВО"}</p>
       <p class='p4'>{profile?.login || "ЛОГИН"}</p>
       <p class='p5'>{profile?.organisation?.title || "ОРГАНИЗАЦИЯ НЕ ОПРЕДЕЛЕНА"}</p>
+      <button class='button-46' onClick={handleLogout}>Выйти</button>
       <div class='longBox'/>
-      <div>
+      <div class="buttons">
       <Link to='/sent'>
         <button class='button-26'>Отправленные</button>
       </Link>
