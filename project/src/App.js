@@ -7,6 +7,8 @@ import Received from "./pages/received";
 import Sent from "./pages/Sent";
 import LoginPage from "./components/LoginForm";
 import Profile from "./pages/profile";
+import AllOrg from "./pages/allorg";
+import ProfileNoti from "./pages/profile_notification";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/sent" element={<Sent/>}/>
         <Route path="/received" element={<Received/>}/>
         <Route path="/add" element={<NewPerson/>}/>
+        <Route path="/organizations" element={<AllOrg/>}/>
+        <Route path="/notifications" element={<ProfileNoti/>}/>
       </Routes>
     </Router>);
 }

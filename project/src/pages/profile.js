@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
 import '../css/LoginForm.css'
+
+import React, {useState} from 'react';
+import {Link, Navigate} from 'react-router-dom';
+
+import bell from '../components/bell-icon.png'
 import TopMenu from '../components/HeaderSmall';
-import { isAuthed } from '../utils/auth';
-import { Link, Navigate } from 'react-router-dom';
-import { getProfile } from '../utils/api';
+import {getProfile} from '../utils/api';
+import {isAuthed} from '../utils/auth';
+
 //  все, что указано под "профилем" идет из базы, но я пока не до конца поняла, как это правильно написать, так что простите, пожалуйста 
 
 function Profile() {
   const [isLogged, setIsLogged] = useState(null);
   const [profile, setProfile] = useState(null);
+  const [hasNotifications, setHasNotifications] = useState(false)
 
   isAuthed().then((res) => setIsLogged(res));
   if (isLogged === false) {
@@ -39,6 +44,11 @@ function Profile() {
       </Link>
       <Link to='/received'>
         <button class='button-26'>Полученные</button>
+            { hasNotifications ? <img class="bell" src={bell}
+                        height="40"
+                        width="40"
+                        alt="bell"
+                        padding="20"/> : <></>}
       </Link>
       <Link to='/load'>
         <button class='button-26'>Загрузить</button>
