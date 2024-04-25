@@ -32,16 +32,14 @@ function Sent() {
         <SearchBar setString={setFilter} string={filter}/>
        </div>
        <div style={{ margin: '70px auto', display: 'flex', justifyContent: 'center' }}>
-        <Table docList={docList?.filter(doc => {
-          const user = doc.recipient;
+        <Table docList={docList?.filter(({recipient}) => {
           if (filter === '') {
             return true;
           }
           return (
-            user.firstname.includes(filter) || 
-            user.lastname.includes(filter) || 
-            user.patronymic.includes(filter)
-          );
+              recipient.firstname.includes(filter) ||
+              recipient.lastname.includes(filter) ||
+              recipient.patronymic.includes(filter));
         })} />
        </div>
     </div>

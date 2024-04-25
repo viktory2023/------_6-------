@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/LoginForm.css'
+import { downloadDoc } from '../utils/api';
 
 const docTypes = {
   'ORDER': 'Приказ',
@@ -17,6 +19,7 @@ const Table = ({docList}) => {
           <th style={{ backgroundColor: '#89a1b3', color: 'white', padding: '10px' }}>Адресант</th>
           <th style={{ backgroundColor: '#89a1b3', color: 'white', padding: '10px' }}>Организация</th>
           <th style={{ backgroundColor: '#89a1b3', color: 'white', padding: '10px' }}>Примечание</th>
+          <th style={{ backgroundColor: '#89a1b3', color: 'white', padding: '10px' }}>Скачать</th>
         </tr>
       </thead>
       {
@@ -38,6 +41,9 @@ const Table = ({docList}) => {
               </td>
               <td style={{ padding: '10px', borderRight: '1px solid #ccc' }}>
                 {doc.description}
+              </td>
+              <td style={{ padding: '10px', borderRight: '1px solid #ccc' }}>
+                <div onClick={() => downloadDoc(doc)}>{doc.filename}</div>
               </td>
             </tr>
           ))}

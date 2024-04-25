@@ -1,8 +1,10 @@
 import client from "./client";
+import fileDownload from 'js-file-download'
 
 const getToken = () => localStorage.getItem('token');
 
-export const getProfile = async () => {
+export const getProfile =
+    async () => {
   const res =
       await client
           .get('/auth/profile', {headers: {Authorization: 'Bearer ' + getToken()}})
@@ -10,7 +12,8 @@ export const getProfile = async () => {
   return res?.data || null
 }
 
-export const getSentDocs = async () => {
+export const getSentDocs =
+    async () => {
   const res = await client
                   .get(
                       '/document/get/all/sender',
@@ -19,7 +22,8 @@ export const getSentDocs = async () => {
   return res?.data || null
 }
 
-export const getReceivedDocs = async () => {
+export const getReceivedDocs =
+    async () => {
   const res = await client
                   .get(
                       '/document/get/all/recipient',
@@ -28,3 +32,11 @@ export const getReceivedDocs = async () => {
   return res?.data || null
 }
 
+export const downloadDoc = async ({path, filename}) => {
+  await client
+      .get(
+          '/document/get/' + path,
+          {headers: {Authorization: 'Bearer ' + getToken()}})
+      .then(({data}) => fileDownload(data, filename))
+      .catch(e => console.log(e))
+}

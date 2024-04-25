@@ -13,7 +13,8 @@
     "bootstrap": "^5.3.3",
     "react-bootstrap": "^2.10.2",
     "react-router-dom": "6.23.0",
-    "axios": "1.6.8"
+    "axios": "1.6.8",
+    "js-file-download": "^0.4.12"
   },
   "scripts": {
     "start": "react-scripts start",
