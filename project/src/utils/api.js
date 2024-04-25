@@ -2,8 +2,7 @@ import client from "./client";
 
 const getToken = () => localStorage.getItem('token');
 
-export const getProfile =
-    async () => {
+export const getProfile = async () => {
   const res =
       await client
           .get('/auth/profile', {headers: {Authorization: 'Bearer ' + getToken()}})

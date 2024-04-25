@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-
+const SearchBar = ({string, setString}) => {
     const handleChange = (event) => {
-        setSearchTerm(event.target.value);
+        setString(event.target.value);
+        // console.log(string)
     };
 
     return (
         <input
             type="text"
             placeholder="Найти"
-            value={searchTerm}
+            value={string}
             onChange={handleChange}
             style={{
                 padding: '10px',
